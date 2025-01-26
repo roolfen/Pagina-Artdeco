@@ -92,8 +92,14 @@
             padding: 0.5rem 0;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            transition: transform 0.3s ease-in-out;
+            will-change: transform;
         }
 
+        .nav-hidden {
+            transform: translateY(-100%);
+        }
+        
         .nav-links {
             max-width: 1200px;
             margin: 0 auto;
@@ -165,7 +171,7 @@
             max-width: 800px;
             margin: 0 auto;
         }
-
+        
         .hero-content h1 {
             font-family: var(--font-heading);
             font-size: 3.8rem;
@@ -234,7 +240,7 @@
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
-
+        
         .servicio-card i {
             font-size: 2.5rem;
             color: var(--secondary-color);
@@ -297,7 +303,7 @@
             letter-spacing: 1.5px;
             font-size: 0.9rem;
         }
-
+        
         .btn-primary {
             background: var(--secondary-color);
             color: var(--text-light);
@@ -360,7 +366,7 @@
                 padding: 1rem 2rem;
                 flex-direction: row;
             }
-
+            
             .nav-menu {
                 position: fixed;
                 left: -100%;
@@ -412,6 +418,7 @@
         }
     </style>
 </head>
+
 <body>
     <header class="hero">
         <div class="hero-video">
@@ -450,7 +457,7 @@
             <a href="presupuesto.html" class="btn btn-primary">Solicitar Presupuesto</a>
         </div>
     </header>
-
+    
     <main>
         <section class="servicios">
             <div class="section-container">
@@ -497,12 +504,12 @@
                 </div>
             </div>
         </section>
-
+        
         <section class="cta">
             <div class="section-container">
-                <h2 data-aos="fade-up">¿Necesita un presupuesto?</h2>
-                <p>Contáctenos sin compromiso</p>
-                <a href="contacto.html" class="btn btn-primary">Contactar Ahora</a>
+                <h2 data-aos="fade-up">¿Listo para transformar tu espacio?</h2>
+                <p data-aos="fade-up">Contáctanos hoy mismo para un presupuesto sin compromiso</p>
+                <a href="contacto.html" class="btn btn-primary" data-aos="fade-up">Contactar Ahora</a>
             </div>
         </section>
     </main>
@@ -510,38 +517,38 @@
     <footer>
         <div class="section-container">
             <div class="footer-grid">
-                <div class="footer-contact">
-                    <h3>Contacto</h3>
-                    <p><i class="fas fa-phone"></i> +34 XXX XXX XXX</p>
-                    <p><i class="fas fa-envelope"></i> info@ejemplo.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> La Palma, Islas Canarias</p>
+                <div>
+                    <h3>Sobre Nosotros</h3>
+                    <p>Expertos en pintura y restauración, comprometidos con la calidad y la satisfacción del cliente.</p>
                 </div>
-                <div class="footer-social">
+                <div>
+                    <h3>Contacto</h3>
+                    <p>Email: info@pinturayrestauracion.com</p>
+                    <p>Teléfono: +34 555 123 456</p>
+                </div>
+                <div>
                     <h3>Síguenos</h3>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
                     </div>
-                </div>
-                <div class="footer-horario">
-                    <h3>Horario</h3>
-                    <p>Lunes a Viernes: 8:00 - 18:00</p>
-                    <p>Sábados: 9:00 - 14:00</p>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Inicialización de AOS
         AOS.init({
             duration: 800,
-            once: true,
-            offset: 100
+            easing: 'ease',
+            once: true
         });
 
-        // Funcionalidad del menú hamburguesa
+        // Control del menú hamburguesa
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
 
@@ -550,13 +557,24 @@
             navMenu.classList.toggle('active');
         });
 
-        // Cerrar menú al hacer clic en un enlace
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
+        // Control de la barra de navegación al hacer scroll
+        let lastScrollTop = 0;
+        const nav = document.querySelector('.main-nav');
+        const scrollThreshold = 100;
+
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+                // Scrolling hacia abajo - ocultar nav
+                nav.classList.add('nav-hidden');
+            } else {
+                // Scrolling hacia arriba - mostrar nav
+                nav.classList.remove('nav-hidden');
+            }
+            
+            lastScrollTop = scrollTop;
+        }, { passive: true });
     </script>
 </body>
 </html>
