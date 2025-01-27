@@ -1,0 +1,297 @@
+/* Estilos específicos para cada página */
+
+/* Encabezado de página común */
+.page-header {
+    background-color: var(--light-bg);
+    padding: calc(var(--spacing-xl) * 2) var(--spacing-md) var(--spacing-xl);
+    text-align: center;
+    margin-top: 70px;
+}
+
+/* Página de Inicio */
+.hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)),
+                url('../img/hero-bg.jpg') center/cover;
+    color: white;
+    padding: calc(var(--spacing-xl) * 2) var(--spacing-md);
+    text-align: center;
+    margin-top: 70px;
+}
+
+.hero h1 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.servicios-destacados {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--light-bg);
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.servicio-card {
+    background-color: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    transition: transform var(--transition-normal);
+}
+
+.servicio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.servicio-card i {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Página de Servicios */
+.servicio-detalle {
+    padding: var(--spacing-xl) 0;
+}
+
+.servicio-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    align-items: center;
+}
+
+.servicio-detalle.reverse .servicio-content {
+    direction: rtl;
+}
+
+.servicio-detalle.reverse .servicio-info {
+    direction: ltr;
+}
+
+.servicio-imagen img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+.servicio-features {
+    list-style: none;
+    margin: var(--spacing-md) 0;
+}
+
+.servicio-features li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.servicio-features i {
+    color: var(--secondary-color);
+    margin-right: var(--spacing-sm);
+}
+
+/* Página de Valores */
+.valores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.valor-card {
+    background-color: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+}
+
+.valor-icon {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.proceso-timeline {
+    max-width: 800px;
+    margin: var(--spacing-xl) auto;
+    padding: 0 var(--spacing-md);
+    position: relative;
+}
+
+.proceso-step {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.paso-numero {
+    background-color: var(--secondary-color);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: var(--spacing-md);
+}
+
+/* Página de Contacto */
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.contacto-info .info-card {
+    background-color: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.contacto-info i {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    font-family: inherit;
+}
+
+.mapa-section {
+    margin-top: var(--spacing-xl);
+}
+
+#mapa {
+    height: 400px;
+    width: 100%;
+    border-radius: var(--border-radius-md);
+    margin-top: var(--spacing-md);
+}
+
+/* Página de Presupuesto */
+.presupuesto-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.calculadora-form {
+    background-color: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.resultados-container {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+.resultados-table {
+    width: 100%;
+    margin-bottom: var(--spacing-md);
+}
+
+.resultados-table td {
+    padding: var(--spacing-sm);
+}
+
+.total-row {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* FAQ Sección */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.faq-item {
+    background-color: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .servicio-content,
+    .contacto-grid,
+    .presupuesto-container {
+        grid-template-columns: 1fr;
+    }
+
+    .servicio-detalle.reverse .servicio-content {
+        direction: ltr;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .valor-card,
+    .servicio-card {
+        padding: var(--spacing-md);
+    }
+}
