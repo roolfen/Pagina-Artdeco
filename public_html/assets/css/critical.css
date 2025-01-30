@@ -1,0 +1,289 @@
+/* assets/css/critical.css */
+/* Fecha: 2025-01-30 00:38:05 */
+/* Autor: roolfen */
+/* Versión: 1.0.5 */
+
+/* Variables globales críticas */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #e67e22;
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --background-dark: #2c3e50;
+    --nav-text: #2c3e50;
+    --transition: all 0.3s ease;
+    --logo-size: 35px;
+    --nav-height: 55px;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Reset crítico específico para el logo */
+.logo-container, 
+.logo, 
+.logo img, 
+.logo-video-container, 
+.logo-video-container video {
+    max-width: var(--logo-size) !important;
+    max-height: var(--logo-size) !important;
+    width: var(--logo-size) !important;
+    height: var(--logo-size) !important;
+    min-width: var(--logo-size) !important;
+    min-height: var(--logo-size) !important;
+    object-fit: contain !important;
+}
+
+/* Estilos críticos de navegación */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height) !important;
+    max-height: var(--nav-height) !important;
+    min-height: var(--nav-height) !important;
+    z-index: 1000;
+    background: #E2E9EA;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+.nav-hidden {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+}
+
+/* Logo y contenedor de video */
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+}
+
+.logo {
+    display: block;
+    flex-shrink: 0 !important;
+}
+
+.logo-video-container {
+    display: none;
+    flex-shrink: 0 !important;
+}
+
+.logo-video-container.active {
+    display: block;
+}
+
+.logo.hidden {
+    display: none;
+}
+
+/* Menú de navegación */
+.nav-links {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.nav-menu {
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 60px;
+    margin-left: 40px;
+}
+
+.nav-menu a {
+    color: var(--nav-text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0 1rem;
+    white-space: nowrap;
+    text-align: center;
+    position: relative;
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Iconos sociales */
+.nav-social-icons {
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: absolute;
+    right: 1rem;
+}
+
+.nav-social-icons a {
+    color: var(--nav-text);
+    text-decoration: none;
+    padding: 0.25rem;
+    transition: var(--transition);
+}
+
+.nav-social-icons a i {
+    font-size: 16px !important;
+}
+
+/* Efectos hover */
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    left: 50%;
+    bottom: 25%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--secondary-color);
+}
+
+.nav-menu a:hover::after {
+    width: 50%;
+}
+
+.nav-social-icons a:hover {
+    color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.hamburger-line {
+    display: block;
+    width: 22px;
+    height: 2px;
+    margin: 4px 0;
+    background-color: var(--nav-text);
+    transition: var(--transition);
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    :root {
+        --logo-size: 30px;
+        --nav-height: 50px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: var(--nav-height);
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - var(--nav-height));
+        background-color: rgba(226, 233, 234, 0.95);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 2rem;
+        transition: all 0.3s ease;
+        margin: 0;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-menu a {
+        padding: 0.75rem 0;
+        font-size: 1rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-social-icons {
+        position: static;
+        transform: none;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+}
+
+/* Animaciones del Hamburger */
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Hero Video y Overlay */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.02);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7));
+    z-index: 2;
+}
+
+/* Efectos de animación */
+@keyframes shimmer {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
